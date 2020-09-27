@@ -68,27 +68,27 @@ public class LevelGenerator : MonoBehaviour
         float xValue = 0;
         float zValue = 0;
         int count = 0;
-        print($"{levelMap[0, 5]}");
+       // print($"{levelMap[0, 5]}");
 
 
-        var amountOfRows = levelMap.Length / 14;
-        for (int i = 0; i < amountOfRows; i++)
-        {
+      //  var amountOfRows = levelMap.Length / 14;
+       // for (int i = 0; i < amountOfRows; i++)
+      //  {
 
-            for (int k = 0; k < 14; k++)
-            {
-                bool wallOnLeft = false;
-                bool wallOnRight = false;
-                bool wallAbove = false;
-                bool wallUnder = false;
-                if (k == 0)
-                {
-                    wallOnLeft = false;
-                }
-                if (i == 0)
-                {
-                    wallAbove = false;
-                }
+          //  for (int k = 0; k < 14; k++)
+          //  {
+          //      bool wallOnLeft = false;
+           //     bool wallOnRight = false;
+           //     bool wallAbove = false;
+           //     bool wallUnder = false;
+           //     if (k == 0)
+            //    {
+            //        wallOnLeft = false;
+           //     }
+           //     if (i == 0)
+           //     {
+           //         wallAbove = false;
+           //     }
                 //if(levelMap[i,k])
 
 
@@ -97,7 +97,7 @@ public class LevelGenerator : MonoBehaviour
 
 
 
-            }
+         //   }
             //for (int i = 0; i < levelMap.Length; i++)
             //{
             //    //if(i-0)
@@ -120,7 +120,7 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
 
-        }
+        
     }
     public void setValueTopRight()
     {
