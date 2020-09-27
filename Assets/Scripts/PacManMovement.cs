@@ -1,51 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class PacManMovement : MonoBehaviour
 {
-    public GameObject pacMan;
-    private Vector3 placement = new Vector3(3.9f, 0f, -0.3f);
-    private Vector3 movementOne = new Vector3(-3.3f, 0f, 0f);
-    public Animator movement;
-    // Start is called before the first frame update
+    [SerializeField] private GameObject pacMan;
+    private Tweener tweener;
+    private List<GameObject> pacManList;
+
+
+    // Use this for initialization
     void Start()
     {
-        pacMan.transform.position = placement;
-        pacMan.transform.rotation = Quaternion.Euler(90, 180, 0);
-
+        tweener = GetComponent<Tweener>();
+        pacManList = new List<GameObject>();
+        pacManList.Add(pacMan);
+        Debug.Log(pacMan);
+        Debug.Log(pacManList);
+        if (tweener == null)
+        {
+            Debug.LogError("null");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine("AllMovement");
+        if (Input.GetKeyDown(KeyCode.Space))
+            if (pacManList[0].activeInHierarchy == false)
+            {
+                pacManList.Add(Instantiate(pacMan, new Vector3(-3.0f, 0.0f, -0.3f), Quaternion.identity));
+            }
 
+        if (Input.GetKeyDown("a"))
+            LoopAddTween("a");
+        if (Input.GetKeyDown("d"))
+            LoopAddTween("d");
+        if (Input.GetKeyDown("s"))
+            LoopAddTween("s");
+        if (Input.GetKeyDown("w"))
+            LoopAddTween("w");
     }
-    IEnumerator AllMovement()
+
+
+    private void LoopAddTween(string key)
     {
-        yield return FirstMovement();
-    }
-    IEnumerator FirstMovement()
-    {
-        Vector3 secondPosition = new Vector3(0.3f, 0, -0.3f);
-        if (pacMan.transform.position == secondPosition)
+        bool added = false;
+        foreach (GameObject item in pacManList)
         {
-            Debug.Log("nice");
-            yield return SecondMovement();
+            if (key == "a")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(-2.0f, 0.5f, 0.0f), 1.5f);
+            if (key == "d")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(2.0f, 0.5f, 0.0f), 1.5f);
+            if (key == "s")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f, 0.5f, -2.0f), 0.5f);
+            if (key == "w")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f, 0.5f, 2.0f), 0.5f);
 
+            if (added)
+                break;
         }
-        else
-        {
-
-            pacMan.transform.Translate(new Vector3(0.01f, 0.0f, 0.0f));
-            Debug.Log("finish");
-        }
-    }
-    IEnumerator SecondMovement()
-    {
-
-        yield return null;
     }
 }
