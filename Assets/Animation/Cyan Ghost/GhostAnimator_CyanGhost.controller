@@ -150,7 +150,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostAnimator_CyanGhost
+  m_Name: CyanGhostDown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -243,7 +243,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoingUp
+  m_Name: CyanGhostUp
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -358,7 +358,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoingRight
+  m_Name: CyanGhostRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -385,7 +385,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GoingLeft
+  m_Name: CyanGhostLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
