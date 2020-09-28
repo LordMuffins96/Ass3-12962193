@@ -63,9 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\LevelGenerator.cs" />
     <Compile Include="Assets\Scripts\Musicandsounds.cs" />
     <Compile Include="Assets\Scripts\PacManMovement.cs" />
+    <Compile Include="Assets\Scripts\Tween.cs" />
+    <Compile Include="Assets\Scripts\Tweener.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/julie/Desktop/Assigment 3 PacMan/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -133,12 +133,31 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5039241545786463779}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &274999225 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5039241546965864211, guid: f3f876568a29bdb40a5950a917cab616,
-    type: 3}
-  m_PrefabInstance: {fileID: 5039241545786463779}
+--- !u!114 &274999228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274999224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fb592a9a026994bbf535f80c9c9709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pacMan: {fileID: 5039241546965864205, guid: f3f876568a29bdb40a5950a917cab616, type: 3}
+--- !u!114 &274999229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274999224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aba3d36a99c04157bcba7dd147e68b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &275321657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6411150492790964474, guid: 328579fcca9333c4082bea1dcedfd81f,
@@ -167,7 +186,6 @@ GameObject:
   m_Component:
   - component: {fileID: 867668691}
   - component: {fileID: 867668690}
-  - component: {fileID: 867668692}
   m_Layer: 0
   m_Name: LevelDesign
   m_TagString: Untagged
@@ -197,6 +215,40 @@ MonoBehaviour:
   - {fileID: 1916940185}
   - {fileID: 1236679939}
   - {fileID: 275321657}
+  sprite: {fileID: 816153689}
+  colors:
+  - r: 0.9245283
+    g: 0.87655747
+    b: 0.87655747
+    a: 0
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
+  - r: 0.8584906
+    g: 0.7657693
+    b: 0.1822268
+    a: 1
 --- !u!4 &867668691
 Transform:
   m_ObjectHideFlags: 0
@@ -211,20 +263,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &867668692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867668689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54fb592a9a026994bbf535f80c9c9709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pacMan: {fileID: 274999224}
-  movement: {fileID: 274999225}
 --- !u!1 &985266078
 GameObject:
   m_ObjectHideFlags: 0
