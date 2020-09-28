@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PacManMovement : MonoBehaviour
@@ -7,55 +8,69 @@ public class PacManMovement : MonoBehaviour
     [SerializeField] private GameObject pacMan;
     private Tweener tweener;
     private List<GameObject> pacManList;
+    private float stopWatch = 0f;
 
 
-    // Use this for initialization
     void Start()
     {
         tweener = GetComponent<Tweener>();
         pacManList = new List<GameObject>();
         pacManList.Add(pacMan);
-        Debug.Log(pacMan);
-        Debug.Log(pacManList);
         if (tweener == null)
         {
             Debug.LogError("null");
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            if (pacManList[0].activeInHierarchy == false)
-            {
-                pacManList.Add(Instantiate(pacMan, new Vector3(-3.0f, 0.0f, -0.3f), Quaternion.identity));
-            }
+        float timer = Time.deltaTime;
+        stopWatch += timer;
+        if(stopWatch > 9f)
+        { 
+           stopWatch = 0f;
+        }
 
-        if (Input.GetKeyDown("a"))
-            LoopAddTween("a");
-        if (Input.GetKeyDown("d"))
-            LoopAddTween("d");
-        if (Input.GetKeyDown("s"))
-            LoopAddTween("s");
-        if (Input.GetKeyDown("w"))
-            LoopAddTween("w");
+        if (stopWatch > 0f && stopWatch < 0.5f)
+        {
+            LoopAddTween("1");
+            pacMan.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        if (stopWatch > 3f && stopWatch < 3.5f)
+        {
+            LoopAddTween("2");
+            pacMan.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+        }
+        if (stopWatch > 4.5f && stopWatch < 5f)
+        {
+            LoopAddTween("3");
+            pacMan.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        if (stopWatch > 7.5f && stopWatch < 8f)
+        {
+            LoopAddTween("4");
+            pacMan.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        }
     }
 
 
-    private void LoopAddTween(string key)
+    private void LoopAddTween(string time)
     {
         bool added = false;
         foreach (GameObject item in pacManList)
         {
-            if (key == "a")
-                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(-2.0f, 0.5f, 0.0f), 1.5f);
-            if (key == "d")
-                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(2.0f, 0.5f, 0.0f), 1.5f);
-            if (key == "s")
-                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f, 0.5f, -2.0f), 0.5f);
-            if (key == "w")
-                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(0.0f, 0.5f, 2.0f), 0.5f);
+            if (time == "1")
+
+                 added = tweener.AddTween(item.transform, item.transform.position, new Vector3(1.0f, -1f, 0.0f), 3f);
+                 
+            if (time == "3")
+                 added = tweener.AddTween(item.transform, item.transform.position, new Vector3(12.0f, -5f, 0.0f), 3f);
+                 
+            if (time == "2")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(1.0f, -5f, 0.0f), 1.5f);
+               
+            if (time == "4")
+                added = tweener.AddTween(item.transform, item.transform.position, new Vector3(12.0f, -1f, 0.0f), 1.5f);
 
             if (added)
                 break;

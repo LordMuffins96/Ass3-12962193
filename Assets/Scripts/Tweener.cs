@@ -3,29 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tweener : MonoBehaviour {
-    //private Tween activeTween;
     private List<Tween> activeTweens;
 
     void Start() {
         activeTweens = new List<Tween>();
     }
 
-    void Update() {
-        //if (activeTween != null)
+    void Update() { 
         Tween activeTween;
-        for (int i = activeTweens.Count-1; i >=0; i--) //Tween activeTween in activeTweens.Reverse<Tween>())
+        for (int i = activeTweens.Count-1; i >=0; i--) 
         {
             activeTween = activeTweens[i];
 
             if (Vector3.Distance(activeTween.Target.position, activeTween.EndPos) > 0.1f) {
                 float timeFraction = (Time.time - activeTween.StartTime) / activeTween.Duration;
-                timeFraction = Mathf.Pow(timeFraction, 3);
                 activeTween.Target.position = Vector3.Lerp(activeTween.StartPos,
                                                           activeTween.EndPos,
                                                            timeFraction);                
             } else {
                 activeTween.Target.position = activeTween.EndPos;
-                //activeTween = null;
                 activeTweens.RemoveAt(i);
             }
         }
